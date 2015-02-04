@@ -7,7 +7,7 @@
 <div id="answers">
   <%= render :partial => @question.answers %>
 </div>
-<% if signed_in?%>
+<% if signed_in? && @question.user != current_user %>
 <%= simple_form_for [@question, Answer.new] do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control"  %>
