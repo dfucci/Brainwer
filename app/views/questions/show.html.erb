@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Text:</strong>
   <%= @question.text %>
 </p>
-
+<h3><%= @question.answers.count  %> Answers</h3>
+<div id="answers">
+  <%= render :partial => @question.answers %>
+</div>
+<% if signed_in?%>
+<%= simple_form_for [@question, Answer.new] do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control"  %>
+  </div>
+  <br />
+  <%= f.submit "Add Answer", class: "btn-primary btn" %>
+<% end %>
+<% end %>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
