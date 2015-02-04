@@ -1,12 +1,18 @@
 source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.2.0.2'
-
+gem 'rails_12factor', group: :production
 gem 'simple_form', '~>3.0.2'
 gem 'devise', '~> 3.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for 
+group :devlopment, :test do
+    gem 'sqlite3'
+end
+
+group :production do
+    gem 'pg'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
