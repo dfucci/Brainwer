@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy] 
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /questions
   # GET /questions.json
@@ -72,5 +74,9 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:text)
+    end
+    def authorize_user
+      @question = current_user.questions.find_by(id: params[:id])
+      redirect_to questions_path, notice: "Not authorized" if @question.nil?
     end
 end
