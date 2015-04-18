@@ -12,6 +12,7 @@
   <% @questions.each do |question| %>
     <tr>
     <td><%= question.text %></td>
+    <td><%= question.prize %></td>
     <td><%= link_to 'Show', question %></td>
     <% if question.user == current_user  %>
       <td><%= link_to 'Edit', edit_question_path(question) %></td>
