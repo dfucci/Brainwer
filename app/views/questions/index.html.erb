@@ -10,13 +10,15 @@
 
   <tbody>
   <% @questions.each do |question| %>
+    <% if current_user && current_user.admin? %>
     <tr>
     <td><%= question.text %></td>
     <td><%= question.prize %></td>
     <td><%= link_to 'Show', question %></td>
-    <% if question.user == current_user  %>
+    <% if question.user == current_user || current_user.admin? %>
       <td><%= link_to 'Edit', edit_question_path(question) %></td>
     <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
   <% end %>
   </tr>
 <% end %>
