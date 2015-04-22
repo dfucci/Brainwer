@@ -6,4 +6,5 @@ class Question < ActiveRecord::Base
   end
   belongs_to :user
   has_many :answers
+
 end
