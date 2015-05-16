@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :answers
 
   devise_for :users
-  root "questions#index"
+  root "questions#new"
   resources :questions do
     resources :answers
   end
