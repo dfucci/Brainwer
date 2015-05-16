@@ -10,11 +10,11 @@
   </ul>
 </div>
   <% end %>
-<div class="centered field">
-  <%= f.text_area :text, hide_label: true, placeholder: "Esempio:...", rows: 7%><br>
-  <%= f.number_field :prize, :class => 'text_field', :step => 'any' %>
-</div>
-<div class="actions">
-  <%= f.submit %>
+<div class="field">
+  <%= f.text_area :text,hide_label:true,  placeholder: "Esempio:...", rows: 7%><br>
+  <div class="input-group form-inline">
+    <%= f.number_field :prize,  :class => 'text_field', :step => 'any',placeholder:100, min:0, style: "width:150px",prepend: "€",  label: "Quanto vuoi offrire? " %>
+    <%= f.primary "Invia", class:"btn-lg" %>
+  </div>
 </div>
 <% end %>
