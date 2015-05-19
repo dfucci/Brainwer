@@ -11,9 +11,11 @@
 </div>
   <% end %>
 <div class="field">
-  <%= f.text_area :text,hide_label:true,  placeholder: "Esempio:...", rows: 7%><br>
+  <% text = session[:question_cached]["text"] unless session[:question_cached].nil?  %>
+  <% prize = session[:question_cached]["prize"] unless session[:question_cached].nil?  %>
+  <%= f.text_area :text,hide_label:true,  placeholder:"Esempio..",:value => text , rows: 7%><br>
   <div class="input-group form-inline">
-    <%= f.number_field :prize,  :class => 'text_field', :step => 'any',placeholder:100, min:0, style: "width:150px",prepend: "€",  label: "Quanto vuoi offrire? " %>
+    <%= f.number_field :prize,  :class => 'text_field', :step => 'any',placeholder:100, min:0, style: "width:150px",prepend: "€",  label: "Quanto vuoi offrire? ", :value => prize %>
     <%= f.primary "Invia", class:"btn-lg" %>
   </div>
 </div>

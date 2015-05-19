@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy] 
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :cache_question, only: [:create]
+  before_filter :authenticate_user!, :except => [:new, :index, :show]
 
   # GET /questions
   # GET /questions.json
@@ -16,8 +17,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    #@question = Question.new
-    @question = current_user.questions.build
+    @question = Question.new
+    # @question = current_user.questions.build
   end
 
   # GET /questions/1/edit
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
   def create
     #@question = Question.new(question_params)
     @question = current_user.questions.build(question_params)
-
+    session[:question_cached] = nil
     respond_to do |format|
       if @question.save
         format.html { redirect_to action: "index" , notice: 'Question was successfully created.' }
@@ -78,5 +79,10 @@ class QuestionsController < ApplicationController
     def authorize_user
       @question = current_user.questions.find_by(id: params[:id])
       redirect_to questions_path, notice: "Not authorized" if @question.nil?
+    end
+
+    def cache_question
+      p "Called"
+      session[:question_cached] = question_params
     end
 end
