@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'rails_12factor', group: :production
 gem 'simple_form', '~>3.0.2'
