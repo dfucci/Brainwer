@@ -8,6 +8,9 @@
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <h3 class="muted"><%= link_to "Brainwer", root_path, class:"nounderline"  %></h3>
+  </div>
   <% if user_signed_in? %>
     <ul class="nav navbar-nav pull-right">
     <li><%= link_to 'Account', edit_user_registration_path %></li>
