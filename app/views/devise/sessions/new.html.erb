@@ -7,7 +7,9 @@
     <%= f.password_field :password, required: false %>
     <%= f.input :remember_me, as: :boolean, label:"Ricordami"  if devise_mapping.rememberable? %>
   </div>
-
+<div>
+  <p><mark>Non hai un account?</mark> <%= link_to 'Crealo ora', new_user_registration_path, class: "nounderline"%> </p>
+</div>
   <div class="form-actions">
     <%= f.button :submit, "Entra" %>
   </div>

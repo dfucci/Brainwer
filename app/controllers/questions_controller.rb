@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
   def create
     #@question = Question.new(question_params)
     @question = current_user.questions.build(question_params)
+    flash[:notice] = "You have successfully logged out."
     session[:question_cached] = nil
     respond_to do |format|
       if @question.save
@@ -82,7 +83,6 @@ class QuestionsController < ApplicationController
     end
 
     def cache_question
-      p "Called"
       session[:question_cached] = question_params
     end
 end
