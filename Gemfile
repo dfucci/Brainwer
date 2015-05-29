@@ -9,14 +9,15 @@ gem 'devise', '~> 3.4.0'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for 
 group :development, :test do
-    gem 'sqlite3'
-    gem 'better_errors'
-    gem 'quiet_assets'
-    gem 'pry-rails'
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'spring'
+  gem 'pry-rails'
 end
 
 group :production do
-    gem 'pg'
+  gem 'pg'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -37,7 +38,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
 gem 'pundit'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
