@@ -12,6 +12,7 @@ group :development, :test do
     gem 'sqlite3'
     gem 'better_errors'
     gem 'quiet_assets'
+    gem 'pry-rails'
 end
 
 group :production do
