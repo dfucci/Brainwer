@@ -2,3 +2,10 @@ language: ruby
 rvm:
 - 2.0.0
 script: 'true'
+deploy:
+  provider: heroku
+  api_key:
+    secure: lCtkec46HxGddhdwtQOjBbhCoXZqAhNSGpZeGaEPxOLIMUdvnkaC8Szbut8NWs5wYxuOxIEpcSzUvqjbod7W+KXARjqU2uZSRfgckm1rblOSUgU2TDXNfwlSPheNiizxmP44DFcxoNk3JwUEXSKOKDGsH6VRItTKdvZ1hjUgWTENSfe63IgKPEa4Yvy63fqYU9fhXQmIFR5EtH/6PeUBTkqMml5ab+3O4mWtQ6S5CTldb3xXx7+nArR6zx+U2zOBkqezYhjAhOc7tv2tGlevCLgAGeV0YJtu9vG+GqODmwlgM3NMPZ72tLd+yVpyrxeSKVY5qL9dK0zd6iSOwAhcAi6S+VLtPAXMmHOsDic/RrQ4ai1IX5r0RgY2jcR4d3P4n1eDJm3xyIvA0+6lu2YTjkcpco2n67E/LudKlDOdNYBlCPl0O4oHp1XKAMBqxop2hwVZC7eIUOtgJ5CxvlNZTq+ilPy8Ir59pieNkcGmnhOPA2nbZ+7kN9SPABGnOLvIGyVjORpGfAFPITFNPXl034IIaRb7qY3ZLORli8T+ub9HzU3xMh/GHiSTOcfdNpFBrDqWXH1j3FRu1uV/bojcuaknukyXjAGLcn8j3oaDfl7iVJzCoczYsVtYGca3i34rKXZU7JYY/g7UZRzV1OyUzcdjLiOg16L4Aw3t+cN91kc=
+  app: shielded-fortress-6549
+  on:
+    repo: dfucci/Brainwer
